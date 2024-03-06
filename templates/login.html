@@ -1,0 +1,86 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="{% static 'gin/https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap' %}" rel="stylesheet">
+
+	<link rel="stylesheet" href="{% static 'gin/https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+	
+	<link rel="stylesheet" href="{% static 'gin/css/style.css' %}">
+	<style>
+		.king{
+        color: black;font-family: Arial, Helvetica, sans-serif;font-weight: bolder;
+    } 
+	</style>
+	</head>
+	<body>
+		<div class="header_section">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			   <div class="logo"><a href="http://127.0.0.1:8000/index"><img src="static/gin/images/logo.png"></a></div>
+			   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				  <span class="navbar-toggler-icon"></span>
+			   </button>
+			<center>
+				<span>
+				   <a class="king" href="http://127.0.0.1:8000/index" style="display:inline-block;  ">Home</a><span class="king"> |</span>
+				   <a class="king" href="http://127.0.0.1:8000/health" style="display:inline-block; text-decoration:none; ">Health</a><span class="king"> |</span>
+				   <a class="king" href="http://127.0.0.1:8000/medicine" style="display:inline-block; text-decoration:none; "> Medicine</a><span class="king"> |</span>
+				   <a class="king" href="http://127.0.0.1:8000/client" style="display:inline-block; text-decoration:none; "> Client </a><span class="king"> |</span>
+				   <a class="king" href="http://127.0.0.1:8000/contact" style="display:inline-block; text-decoration:none; ">Contact us</a><span class="king"> |</span>
+				   <a class="king" href="http://127.0.0.1:8000/login" style="display:inline-block; text-decoration:none; ">Login </a>
+				  </span>
+			 </center>
+   </div>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Login</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-5">
+					<div class="login-wrap p-4 p-md-5">
+						<form method="POST" class="login-form">
+							{% csrf_token %}
+		      		<div class="form-group">
+		      			<input type="text" name="name" id="name" class="form-control rounded-left" placeholder="Username" required>
+		      		</div>
+	            <div class="form-group d-flex">
+	              <input type="password" name="pass" id="pass" class="form-control rounded-left" placeholder="Password" required>
+	            </div>
+	            <div class="form-group d-md-flex">
+	            	<div class="w-50">
+	            		<label class="checkbox-wrap checkbox-primary">Remember Me
+									  <input type="checkbox" checked>
+									  <span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="w-50 text-md-right">
+									<a href="#">Forgot Password</a>
+								</div>
+	            </div>
+	            <div class="form-group">
+	            	<button type="submit" class="btn btn-primary rounded submit p-3 px-5">Get Started</button>
+	            </div>
+	          </form>
+	        </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{% static 'gin/js/jquery.min.js' %}"></script>
+  <script src="{% static 'gin/js/popper.js' %}"></script>
+  <script src="{% static 'gin/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'gin/js/main.js' %}"></script>
+  {% for i in messages %}
+  <script>alert("{{i}}")</script>
+  {% endfor %}
+	</body>
+</html>
+

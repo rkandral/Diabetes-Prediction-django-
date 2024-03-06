@@ -1,0 +1,162 @@
+{% load static %}
+<html>
+  <head>
+      <title>lung data</title>
+      <style>
+      html, body
+      {
+      min-height: 100%;
+      background:url({% static 'images/bgimage.jpg' %});
+      background-size:cover;
+      }
+      body, div, form, input, select, textarea, label {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #026e4f;
+      line-height: 20px;
+      }
+      h1 {
+      position: center;
+      margin:0;
+      font-size: 60px;
+      color: turquoise;
+      line-height: 83px;
+      top:50px;
+      }
+      legend {
+      padding: 10px;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 18px;
+      color: white;
+      background-color: #eb7c87;
+      border-radius:5px;
+      }
+      .testbox {
+      display: flex;
+      padding: 20px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 50px;
+      background: #f5f5f5;
+      box-shadow: 0 0 8px #836dbf;
+      }
+      .banner {
+      position: relative;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(48,213,200, 0.3);
+      border-radius:20px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      input, select, textarea {
+      margin-bottom: 30px;
+      border: 1px solid #ccc;
+      border-radius: 30px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+       .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 3px 0  #006622;
+      color: #006622;
+      }
+      .colums {
+      display:flex;
+      justify-content:space-between;
+      flex-direction:row;
+      flex-wrap:wrap;
+      }
+      .colums div {
+      width:48%;
+      }
+
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background:  #eb7c87;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background:  #f20511;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="testbox">
+    <form action="diabetespredict" method="post">
+      <div class="banner">
+        <h1>DIABETIES PREDICTION</h1>
+      </div>
+      <br/>
+      <fieldset>
+        <legend>Enter Patient Details</legend>
+{% csrf_token %}
+        <div class="colums">
+          <div class="item">
+            <label><b>Pregnancies</b></label>
+            <input type="text" name="preg" required>
+          </div>
+          <div class="item">
+             <label><b>Glucose</b></label>
+            <input type="text" name="glucose" required>
+          </div>
+          <div class="item">
+            <label><b>Blood Pressure</b></label>
+            <input type="text" name="bp" required>
+          </div>
+          <div class="item">
+            <label><b>Skin Thickness</b></label>
+            <input type="text" name="skin" required>
+          </div>
+          <div class="item">
+            <label><b>Insulin</b></label>
+            <input type="text" name="insulin" required>
+          </div>
+          <div class="item">
+           <label><b>BMI</b></label>
+            <input type="text" name="bmi" required>
+          </div>
+          <div class="item">
+            <label><b>Diabetes Pedigree Function</b></label>
+            <input type="text" name="pedigree" required>
+          </div>
+          <div class="item">
+           <label><b>Age</b></label>
+            <input type="text" name="age" required>
+          </div>
+          
+        </div>
+      </fieldset>
+            <div class="btn-block">
+      <button type="submit">PREDICT DIABETES</button>
+      </div>
+    </form>
+    </div>
+  </body>
+</html>
